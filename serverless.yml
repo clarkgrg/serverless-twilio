@@ -1,0 +1,17 @@
+# Welcome to Serverless!
+# Challenge #7 Send Twilio Text Messages
+# Remind me to take out the trash monday evenings
+
+service: messenger 
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+
+functions:
+  messenger:
+    handler: handler.messenger
+    events:
+      - schedule: cron(0 18 ? * MON *)
